@@ -135,6 +135,28 @@ Console.WriteLine();
 Console.WriteLine($"Количество задач: {tasks.Count}");
 PrintTasks(tasks);
 
+
+Console.WriteLine();
+Console.Write("Введите название задачи для подсчёта совпадений: ");
+string countTitle = Console.ReadLine()!;
+Console.WriteLine($"Количество совпадений: {CountTask(tasks, countTitle)}");
+
+int CountTask(List<string> tasks, string title)
+{
+    int count = 0;
+
+    foreach (string task in tasks)
+    {
+        if (task == title)
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+
 bool InsertTaskSafe(List<string> tasks, int index, string title)
 {
     if (index < 0 || index > tasks.Count)
